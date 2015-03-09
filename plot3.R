@@ -6,9 +6,11 @@ pcon <- subset(read.table("household_power_consumption.txt", sep=";", header=TRU
                           stringsAsFactors=FALSE, na.strings="?"), 
                Date=="1/2/2007"| Date=="2/2/2007")
 
-date <- as.Date(pcon[,"Date"], "%d/%m/%Y")
-time <- pcon[,"Time"]
-datetime <- strptime(paste(date, time), "%Y-%m-%d %H:%M:%S")
+# date <- as.Date(pcon[,"Date"], "%d/%m/%Y")
+# time <- pcon[,"Time"]
+# datetime <- strptime(paste(date, time), "%Y-%m-%d %H:%M:%S")
+datetime <- strptime(paste(as.Date(pcon[,"Date"], "%d/%m/%Y"), pcon[,"Time"]), 
+                     "%Y-%m-%d %H:%M:%S")
 
 png(file = "figure/plot3.png", bg = "transparent")
 with(pcon, {plot(datetime, Sub_metering_1, type="l", 
