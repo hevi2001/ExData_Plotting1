@@ -2,6 +2,7 @@
 ## using data from the dates 2007-02-01 and 2007-02-02
 ##
 ## plotting data & creating png (480x480px)
+## the png file at figure directory
 pcon <- subset(read.table("household_power_consumption.txt", sep=";", header=TRUE, 
                           stringsAsFactors=FALSE, na.strings="?"), 
                Date=="1/2/2007"| Date=="2/2/2007")
